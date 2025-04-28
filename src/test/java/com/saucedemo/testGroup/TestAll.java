@@ -19,13 +19,6 @@ public class TestAll {
     }
 
     @Test
-    @Order(10)
-    @DisplayName("로그인 실패")
-    void testLoginFail(){
-        SF.get(CheckSauceDemoLoginFail.class).proceed().validate();
-    }
-
-    @Test
     @Order(1)
     @DisplayName("로그인 성공")
     void testLogin(){
@@ -84,6 +77,13 @@ public class TestAll {
     @DisplayName("로그아웃")
     void testLogout(){
         SF.get(CheckSauceDemoLogout.class).proceed().validate();
+    }
+
+    @Test
+    @Order(10)
+    @DisplayName("로그인 실패")
+    void testLoginFail(){
+        SF.get(CheckSauceDemoLoginFail.class).proceed().validate();
     }
 
 
