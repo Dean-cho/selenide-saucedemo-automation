@@ -1,0 +1,13 @@
+timeout: 60000
+
+urls:
+  sauceDemo: "https://www.saucedemo.com/"
+
+accounts:
+  standardUser:
+    id: "standard_user"
+    pw: "secret_sauce"
+
+  standardUserFail:
+    id: "standard_user"
+    pw: "secret_sauce1"
