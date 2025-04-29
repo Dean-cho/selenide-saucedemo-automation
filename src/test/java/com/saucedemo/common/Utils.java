@@ -41,6 +41,9 @@ public class Utils {
 //                chromeOptions.addArguments("--user-data-dir=" + userDataDir);
 //            }
 
+            String userDataDir = System.getProperty("java.io.tmpdir") + "/chrome-profile-" + System.currentTimeMillis();
+            chromeOptions.addArguments("--user-data-dir=" + userDataDir);
+
             chromeOptions.addArguments("--incognito");
             chromeOptions.addArguments("--no-first-run");
             chromeOptions.addArguments("--no-default-browser-check");
