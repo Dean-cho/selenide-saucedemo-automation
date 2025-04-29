@@ -1,4 +1,4 @@
-# 🛒 Selenide 기반 SauceDemo 자동화 테스트 프로젝트
+# Selenide 기반 SauceDemo 자동화 테스트 프로젝트
 
 ## 프로젝트 소개
 - **Selenide**와 **Java**를 사용하여 [SauceDemo](https://www.saucedemo.com/) 웹사이트의 쇼핑몰 기능을 자동화 테스트한 프로젝트입니다.
