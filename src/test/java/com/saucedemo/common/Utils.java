@@ -35,16 +35,11 @@ public class Utils {
             prefs.put("profile.password_manager_enabled", false);     // 비밀번호 저장 관리자 비활성화
             chromeOptions.setExperimentalOption("prefs", prefs);
 
-            // 고정된 사용자 프로필 디렉토리 (비밀번호 팝업 방지 설정 유지 목적)
-            String userDataDir;
-            if (isCIEnvironment()) {
-                // CI 환경에서는 고유한 임시 경로 사용
-                userDataDir = System.getProperty("java.io.tmpdir") + "/profile-" + System.currentTimeMillis();
-            } else {
-                // 로컬에서는 기존 고정 경로 사용
-                userDataDir = System.getProperty("user.dir") + "/chrome-profile";
+            // 로컬에서만 user-data-dir 설정
+            if (!isCIEnvironment()) {
+                String userDataDir = System.getProperty("user.dir") + "/chrome-profile";
+                chromeOptions.addArguments("--user-data-dir=" + userDataDir);
             }
-            chromeOptions.addArguments("--user-data-dir=" + userDataDir);
 
             // 비밀번호 유출 경고 차단 관련 옵션
             chromeOptions.addArguments("--disable-features=PasswordLeakDetection,AutofillServerCommunication,AutofillEnableAccountWalletStorage,AutofillCreditCardUpload");
