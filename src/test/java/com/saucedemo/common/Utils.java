@@ -41,6 +41,10 @@ public class Utils {
 //                chromeOptions.addArguments("--user-data-dir=" + userDataDir);
 //            }
 
+            chromeOptions.addArguments("--incognito");
+            chromeOptions.addArguments("--no-first-run");
+            chromeOptions.addArguments("--no-default-browser-check");
+
             // 비밀번호 유출 경고 차단 관련 옵션
             chromeOptions.addArguments("--disable-features=PasswordLeakDetection,AutofillServerCommunication,AutofillEnableAccountWalletStorage,AutofillCreditCardUpload");
             chromeOptions.addArguments("--password-store=basic");
