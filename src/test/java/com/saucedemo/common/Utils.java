@@ -26,34 +26,34 @@ public class Utils {
 
     private static void setBrowserOptions(final String browser) {
         Configuration.browser = browser;
+
         if ("chrome".equalsIgnoreCase(browser)) {
             ChromeOptions chromeOptions = new ChromeOptions().addArguments("--lang=ko");
 
-            // 비밀번호 팝업 방지 옵션
-            Map<String, Object> prefs = new HashMap<>();
-            prefs.put("credentials_enable_service", false);           // 크롬 Credential Service 비활성화
-            prefs.put("profile.password_manager_enabled", false);     // 비밀번호 저장 관리자 비활성화
-            chromeOptions.setExperimentalOption("prefs", prefs);
+            // 로컬 환경 설정
+            if (!isCIEnvironment()) {
+                // 비밀번호 팝업 방지 설정
+                Map<String, Object> prefs = new HashMap<>();
+                prefs.put("credentials_enable_service", false);
+                prefs.put("profile.password_manager_enabled", false);
+                chromeOptions.setExperimentalOption("prefs", prefs);
 
-//            // 로컬에서만 user-data-dir 설정
-//            if (!isCIEnvironment()) {
-//                String userDataDir = System.getProperty("user.dir") + "/chrome-profile";
-//                chromeOptions.addArguments("--user-data-dir=" + userDataDir);
-//            }
+                // user-data-dir 설정 (로컬만)
+                String userDataDir = System.getProperty("user.dir") + "/chrome-profile";
+                chromeOptions.addArguments("--user-data-dir=" + userDataDir);
+            }
 
-            String userDataDir = System.getProperty("java.io.tmpdir") + "/chrome-profile-" + System.currentTimeMillis();
-            chromeOptions.addArguments("--user-data-dir=" + userDataDir);
-
+            // 공통 옵션
             chromeOptions.addArguments("--incognito");
             chromeOptions.addArguments("--no-first-run");
             chromeOptions.addArguments("--no-default-browser-check");
 
-            // 비밀번호 유출 경고 차단 관련 옵션
             chromeOptions.addArguments("--disable-features=PasswordLeakDetection,AutofillServerCommunication,AutofillEnableAccountWalletStorage,AutofillCreditCardUpload");
             chromeOptions.addArguments("--password-store=basic");
 
-            // 기타 브라우저 설정
-//      chromeOptions.setHeadless(true);
+            chromeOptions.addArguments("--headless=new");
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+            chromeOptions.addArguments("--disable-gpu");
             chromeOptions.addArguments("--whitelisted-ips");
             chromeOptions.addArguments("--verbose");
             chromeOptions.addArguments("--no-sandbox");
@@ -65,8 +65,9 @@ public class Utils {
         }
     }
 
+
     private static boolean isCIEnvironment() {
-        // GitHub Actions 또는 다른 CI 환경에서는 보통 CI 환경 변수를 제공합니다
+        // CI 환경에서는 환경 변수로 구분 (예: GitHub Actions)
         return System.getenv("CI") != null;
     }
 
