@@ -21,6 +21,7 @@ public class Utils {
         Configuration.browserPosition = "0x0";
         Configuration.pageLoadTimeout = PropertyLoader.getConfig().getTimeout();
         Configuration.pageLoadStrategy = "normal";
+        Configuration.timeout = 10000;
 
     }
 
@@ -42,7 +43,7 @@ public class Utils {
                 chromeOptions.addArguments("--user-data-dir=" + userDataDir);
                 chromeOptions.addArguments("--start-maximized"); // 브라우저 창 표시
             } else {
-                chromeOptions.addArguments("--headless=new"); // CI 환경용
+                chromeOptions.addArguments("--headless"); // CI 환경용
             }
 
             // 시크릿 모드 실행
