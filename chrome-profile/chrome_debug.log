@@ -1,8 +1,1 @@
-[66840:5691116:0430/163115.024566:INFO:chrome_browser_cloud_management_controller.cc(202)] No machine level policy manager exists.
-[66840:5691116:0430/163116.253344:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: https://www.saucedemo.com/ (0)
-[66840:5691116:0430/163125.596177:WARNING:controller_impl.cc(1187)] Background download complete, client: 6, completion type: 0, file size:5159
-[66840:5691116:0430/163126.521163:WARNING:controller_impl.cc(1187)] Background download complete, client: 6, completion type: 0, file size:2747170
-[66840:5691116:0430/163128.221112:WARNING:controller_impl.cc(1187)] Background download complete, client: 6, completion type: 0, file size:45159
-[66840:5691116:0430/163138.595910:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: https://www.saucedemo.com/ (0)
-[66856:5691270:0430/163138.714890:WARNING:sqlite_persistent_store_backend_base.cc(176)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:226 to client_task_runner_.
-[66856:5691270:0430/163138.717611:WARNING:sqlite_persistent_store_backend_base.cc(176)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:226 to client_task_runner_.
+[74864:5778594:0430/165719.630425:INFO:chrome_browser_cloud_management_controller.cc(202)] No machine level policy manager exists.

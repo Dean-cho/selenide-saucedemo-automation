@@ -22,6 +22,7 @@ public class Utils {
         Configuration.pageLoadTimeout = PropertyLoader.getConfig().getTimeout();
         Configuration.pageLoadStrategy = "normal";
         Configuration.timeout = 10000;
+        Configuration.reportsFolder = "test-result/screenshots";
 
     }
 

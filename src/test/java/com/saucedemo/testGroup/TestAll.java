@@ -1,11 +1,14 @@
 package com.saucedemo.testGroup;
 
+import com.codeborne.selenide.Screenshots;
 import com.saucedemo.common.SF;
 import com.saucedemo.common.Utils;
 import com.saucedemo.pages.Home;
 import com.saucedemo.testcases.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
+
+import java.io.File;
 
 @DisplayName("전체 테스트")
 @TestInstance(Lifecycle.PER_CLASS)
@@ -16,6 +19,18 @@ public class TestAll {
     void beforeAll(){
         Utils.setTestConfig();
         Home.Actions.openPage();
+    }
+
+    @AfterEach
+    void captureScreenshot(TestInfo testInfo) {
+        // 테스트 실행 후 마지막 스크린샷 파일 참조
+        File screenshot = Screenshots.getLastScreenshot();
+        if (screenshot != null && screenshot.exists()) {
+            System.out.println("Screenshot saved for test: " + testInfo.getDisplayName());
+            System.out.println("Path: " + screenshot.getAbsolutePath());
+        } else {
+            System.out.println("No screenshot was taken.");
+        }
     }
 
     @Test
