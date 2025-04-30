@@ -43,7 +43,7 @@ public class CheckProductInCartRemove implements TestCase {
         selectButton.shouldHave(Condition.text("Remove"));
 
         // 쇼핑 카트 상세 페이지로 이동
-        Home.shoppingCart().click();
+        Home.shoppingCart().shouldBe(Condition.visible).click();
 
         // 상품 리스트에서 무작위로 담은 상품이 카트에 존재하는지 체크
         List<String> cartProductName = StreamSupport.stream(Home.productName().spliterator(),false)
