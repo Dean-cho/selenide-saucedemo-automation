@@ -1,3 +1,5 @@
+name: Run Selenide Tests Daily
+
 on:
   schedule:
     #- cron: '0 0 * * *'  # 매일 오전 9시 (한국 시간 = UTC+9 → UTC 자정 기준)
@@ -18,8 +20,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Maven
-        run: mvn clean test
+      - name: Run only TestAll
+        run: mvn -Dtest=TestAll test
 
       - name: Archive Test Reports
         if: always()
