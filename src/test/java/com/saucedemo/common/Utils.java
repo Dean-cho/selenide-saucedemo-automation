@@ -43,11 +43,12 @@ public class Utils {
                 chromeOptions.addArguments("--user-data-dir=" + userDataDir);
                 chromeOptions.addArguments("--start-maximized"); // 브라우저 창 표시
             } else {
-                chromeOptions.addArguments("--headless"); // CI 환경용
+                chromeOptions.addArguments("--headless=new"); // CI 환경용
+                chromeOptions.addArguments("--window-size=1920,1080");
             }
 
             // 시크릿 모드 실행
-            chromeOptions.addArguments("--incognito");
+            //chromeOptions.addArguments("--incognito");
 
             // 자동 완성 관련 기능 및 비밀번호 유출 감지 기능 비활성화
             chromeOptions.addArguments("--disable-features=PasswordLeakDetection,AutofillServerCommunication,AutofillEnableAccountWalletStorage,AutofillCreditCardUpload");
@@ -65,13 +66,17 @@ public class Utils {
             chromeOptions.addArguments("--no-sandbox");
 
             // 확장 프로그램 비활성화 (테스트 안정성 확보)
-            chromeOptions.addArguments("--disable-extensions");
+            //chromeOptions.addArguments("--disable-extensions");
 
             // 브라우저 알림 차단 (웹 푸시 알림 방지)
             chromeOptions.addArguments("--disable-notifications");
 
             // 팝업 차단 기능 비활성화 (테스트 중 팝업 확인을 위해)
             chromeOptions.addArguments("--disable-popup-blocking");
+
+            // CI 환경 메모리 부족으로 크롬 충돌 방지
+            chromeOptions.addArguments("--disable-dev-shm-usage");
+
 
             Configuration.browserCapabilities = chromeOptions;
         }
