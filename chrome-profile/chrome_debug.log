@@ -1,1 +1,5 @@
-[59018:1542589:0429/173657.864471:INFO:chrome_browser_cloud_management_controller.cc(202)] No machine level policy manager exists.
+[52788:4516661:0430/100803.741354:INFO:chrome_browser_cloud_management_controller.cc(202)] No machine level policy manager exists.
+[52788:4516661:0430/100805.019169:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq) %o", source: https://www.saucedemo.com/ (0)
+[52788:4516661:0430/100807.602155:INFO:CONSOLE(0)] "[DOM] Input elements should have autocomplete attributes (suggested: "current-password"): (More info: https://goo.gl/9p2vKq)", source: https://www.saucedemo.com/ (0)
+[52800:4516783:0430/100807.765840:WARNING:sqlite_persistent_store_backend_base.cc(176)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:226 to client_task_runner_.
+[52800:4516783:0430/100807.766134:WARNING:sqlite_persistent_store_backend_base.cc(176)] Failed to post task from FlushAndNotifyInBackground@net/extras/sqlite/sqlite_persistent_store_backend_base.cc:226 to client_task_runner_.

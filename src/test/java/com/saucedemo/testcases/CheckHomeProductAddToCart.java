@@ -61,7 +61,5 @@ public class CheckHomeProductAddToCart implements TestCase {
         logger.info("실제 상품 수량 결과 : {}", actualCount);
         logger.info("예상 상품 수량 결과 : {}", expectedCount);
 
-        //Home.Actions.clearCart();
-
     }
 }

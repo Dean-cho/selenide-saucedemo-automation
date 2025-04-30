@@ -19,10 +19,6 @@ public class CheckSauceDemoLogin implements TestCase {
     @Override
     public TestCase proceed() {
         Home.usernameStandard().click();
-//        final Map<String, Config.Account> account = PropertyLoader.getConfig().accounts;
-//        final String standardUserId = account.get("standardUser").id;
-//        final String standardUserPw = account.get("standardUser").pw;
-//        Home.Actions.login(standardUserId, standardUserPw);
         Config.Account account = PropertyLoader.getConfig().accounts.get("standardUser");
         Home.Actions.login(account.id, account.pw);
 

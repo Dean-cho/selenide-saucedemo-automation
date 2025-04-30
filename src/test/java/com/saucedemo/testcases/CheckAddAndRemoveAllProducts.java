@@ -29,12 +29,10 @@ public class CheckAddAndRemoveAllProducts implements TestCase {
     @Override
     public TestCase proceed() {
 
-
         // Remove 버튼이 이미 존재하는 경우 초기화
         Home.Actions.removeButtons();
 
         // 랜덤하게 3개의 상품을 선택하여 장바구니에 담기
-        //List<Home.ProductInfo> selectedProducts = Home.Actions.addRandomProductsToCart(3);
         selectedProducts = Home.Actions.addRandomProductsToCart(3);
 
         // 선택된 상품명 추출

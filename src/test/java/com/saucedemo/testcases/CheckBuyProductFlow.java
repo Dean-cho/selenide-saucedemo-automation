@@ -4,7 +4,6 @@ import com.codeborne.selenide.Condition;
 import com.saucedemo.pages.Home;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -26,11 +25,6 @@ public class CheckBuyProductFlow implements TestCase {
 
         // 랜덤하게 3개의 상품을 선택하여 장바구니에 담기 (상품 이름, 가격 정보 포함)
         selectedProducts = Home.Actions.addRandomProductsToCart(3);
-
-        // 선택된 상품명 추출
-        List<String> selectedNames = selectedProducts.stream().map(p -> p.name).collect(Collectors.toList());
-        List<String> selectedPrices = selectedProducts.stream().map(p -> p.price).collect(Collectors.toList());
-
 
         // 장바구니 페이지에서 랜덤으로 장바구니에 담은 상품 확인
         Home.Actions.verifyProductsInCart(selectedProducts);

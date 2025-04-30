@@ -29,9 +29,6 @@ public class CheckProductInCartRemove implements TestCase {
 
     @Override
     public TestCase proceed(){
-
-
-
         // 무작위 상품 선택 및 selectedProductName에 저장
         index = new Random().nextInt(Home.addToCartButton().size());
         selectProductName = Home.productName().get(index).getText();
@@ -78,7 +75,6 @@ public class CheckProductInCartRemove implements TestCase {
 
     @Override
     public void validate(){
-
         // 리스트에서 다시 버튼을 가져옴 (index 그대로 사용 가능)
         SelenideElement buttonAfterRemove = Home.addToCartButton().get(index);
 

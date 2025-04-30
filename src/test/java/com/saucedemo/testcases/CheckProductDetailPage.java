@@ -13,11 +13,9 @@ public class CheckProductDetailPage implements TestCase{
 
     @Override
     public TestCase proceed() {
-
         // 무작위 상품 선택 및 selectedProductName에 저장
         index = new Random().nextInt(Home.productName().size());
         selectProductName = Home.productName().get(index).getText();
-
         Home.Actions.clickProductByName(selectProductName);
 
 

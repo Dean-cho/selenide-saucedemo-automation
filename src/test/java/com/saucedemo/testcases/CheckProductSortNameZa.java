@@ -21,12 +21,6 @@ public class CheckProductSortNameZa implements TestCase {
     @Override
     public TestCase proceed() {
         Home.productSortOptionZa().click();
-
-//        ElementsCollection titleElements = $$(".inventory_item_name");
-//        actualTitle = titleElements.asFixedIterable().stream()
-//                .map(el -> el.getText())
-//                .collect(Collectors.toList());
-
         List<String> productName = Home.getProductName();
         actualTitle = Home.Actions.sortDescendingByProductName(productName);
 
@@ -35,12 +29,6 @@ public class CheckProductSortNameZa implements TestCase {
 
     @Override
     public void validate(){
-//        List<String> expectedSortedTitle = actualTitle.stream()
-//                .sorted(Comparator.reverseOrder())
-//                .collect(Collectors.toList());
-//
-//        Assertions.assertEquals(expectedSortedTitle, actualTitle, "알파멧 Z to A 순으로 정렬되지 않음.");
-
         List<String> expectedSortedTitle = Home.Actions.sortDescendingByProductName(actualTitle);
         Assertions.assertEquals(expectedSortedTitle, actualTitle, "알파멧 Z to A 순으로 정렬되지 않음.");
 
