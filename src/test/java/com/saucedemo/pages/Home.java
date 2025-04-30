@@ -279,7 +279,7 @@ public class Home {
 
         public static void removeButtons() {
          while (!removeButton().isEmpty()) {
-          removeButton().first().shouldBe(Condition.visible).click();
+          removeButton().first().shouldBe(Condition.appear, Duration.ofSeconds(10)).click();
           Utils.sleep(1);
          }
         }
