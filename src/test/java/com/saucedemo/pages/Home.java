@@ -278,8 +278,10 @@ public class Home {
         }
 
         public static void removeButtons() {
-         while (!removeButton().isEmpty()) {
-          removeButton().first().shouldBe(Condition.appear, Duration.ofSeconds(10)).click();
+         while (true) {
+          ElementsCollection buttons = $$x("//button[text()='Remove']");
+          if (buttons.isEmpty()) break;
+          buttons.get(0).shouldBe(Condition.appear, Duration.ofSeconds(10)).click();
           Utils.sleep(1);
          }
         }
