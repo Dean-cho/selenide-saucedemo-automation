@@ -1,6 +1,7 @@
 package com.saucedemo.testcases;
 
 
+import com.codeborne.selenide.Condition;
 import com.saucedemo.common.Config;
 import com.saucedemo.common.PropertyLoader;
 import com.saucedemo.pages.Home;
@@ -24,6 +25,6 @@ public class CheckSauceDemoLoginFail implements TestCase {
 
     @Override
     public void validate(){
-        assertTrue(Home.loginFailMessage().exists());
+        assertTrue(Home.loginFailMessage().shouldBe(Condition.visible).exists());
     }
 }

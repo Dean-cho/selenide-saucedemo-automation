@@ -55,7 +55,7 @@ public class CheckAddAndRemoveAllProducts implements TestCase {
         Home.Actions.removeProductsFromCart(selectedNames.size());
 
         // Continue Shopping 버튼 클릭
-        Home.continueShopping().click();
+        Home.continueShopping().shouldBe(Condition.visible).click();
 
 
 

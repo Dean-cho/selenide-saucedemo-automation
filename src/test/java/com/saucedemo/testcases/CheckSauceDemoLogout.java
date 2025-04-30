@@ -1,6 +1,7 @@
 package com.saucedemo.testcases;
 
 
+import com.codeborne.selenide.Condition;
 import com.saucedemo.pages.Home;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -15,8 +16,8 @@ public class CheckSauceDemoLogout implements TestCase {
 
     @Override
     public TestCase proceed(){
-        Home.bmBurgerButton().click();
-        Home.logoutButton().click();
+        Home.bmBurgerButton().shouldBe(Condition.visible).click();
+        Home.logoutButton().shouldBe(Condition.visible).click();
 
 
         return this;
@@ -25,7 +26,7 @@ public class CheckSauceDemoLogout implements TestCase {
 
     @Override
     public void validate(){
-        assertTrue(Home.loginButton().exists());
+        assertTrue(Home.loginButton().shouldBe(Condition.visible).exists());
 
     }
 

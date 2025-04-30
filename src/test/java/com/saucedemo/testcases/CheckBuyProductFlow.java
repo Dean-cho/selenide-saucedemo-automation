@@ -30,19 +30,19 @@ public class CheckBuyProductFlow implements TestCase {
         Home.Actions.verifyProductsInCart(selectedProducts);
 
         // Checkout 버튼 클릭
-        Home.checkoutButton().click();
+        Home.checkoutButton().shouldBe(Condition.visible).click();
 
         // 정보 입력
         Home.Actions.fillCheckoutInfo("JO", "HYUNJIN", "123456");
 
         // 최종 정보 제출
-        Home.continueButton().click();
+        Home.continueButton().shouldBe(Condition.visible).click();
 
         // 총 상품 가격 확인
         Home.Actions.verifyTotalPrice(selectedProducts);
 
         // Finish 버튼 클릭하여 구매 완료
-        Home.finishButton().click();
+        Home.finishButton().shouldBe(Condition.visible).click();
 
 
 
@@ -52,7 +52,7 @@ public class CheckBuyProductFlow implements TestCase {
 
     @Override
     public void validate() {
-        assertTrue(Home.backHomeButton().exists());
+        assertTrue(Home.backHomeButton().shouldBe(Condition.visible).exists());
         Home.backHomeButton().shouldBe(Condition.visible).click();
     }
 }
