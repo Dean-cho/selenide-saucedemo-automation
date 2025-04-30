@@ -47,7 +47,7 @@ public class Utils {
             }
 
             // 시크릿 모드 실행
-            //chromeOptions.addArguments("--incognito");
+            chromeOptions.addArguments("--incognito");
 
             // 자동 완성 관련 기능 및 비밀번호 유출 감지 기능 비활성화
             chromeOptions.addArguments("--disable-features=PasswordLeakDetection,AutofillServerCommunication,AutofillEnableAccountWalletStorage,AutofillCreditCardUpload");
