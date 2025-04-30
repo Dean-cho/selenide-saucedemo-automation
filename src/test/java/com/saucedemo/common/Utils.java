@@ -48,7 +48,7 @@ public class Utils {
             }
 
             // 시크릿 모드 실행
-            //chromeOptions.addArguments("--incognito");
+            chromeOptions.addArguments("--incognito");
 
             // 자동 완성 관련 기능 및 비밀번호 유출 감지 기능 비활성화
             chromeOptions.addArguments("--disable-features=PasswordLeakDetection,AutofillServerCommunication,AutofillEnableAccountWalletStorage,AutofillCreditCardUpload");
@@ -66,7 +66,7 @@ public class Utils {
             chromeOptions.addArguments("--no-sandbox");
 
             // 확장 프로그램 비활성화 (테스트 안정성 확보)
-            //chromeOptions.addArguments("--disable-extensions");
+            chromeOptions.addArguments("--disable-extensions");
 
             // 브라우저 알림 차단 (웹 푸시 알림 방지)
             chromeOptions.addArguments("--disable-notifications");
