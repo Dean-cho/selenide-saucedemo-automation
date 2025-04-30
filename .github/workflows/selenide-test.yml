@@ -3,7 +3,8 @@ name: Run Selenide Tests Daily
 on:
   schedule:
     #- cron: '0 0 * * *'  # 매일 오전 9시 (한국 시간 = UTC+9 → UTC 자정 기준)
-    - cron: '*/5 * * * *'  # 5분마다 실행
+    #- cron: '*/5 * * * *'  # 5분마다 실행
+    - cron: '*/300 * * * *'  # 5분마다 실행
   workflow_dispatch:     # 수동 실행도 가능
 
 jobs:
