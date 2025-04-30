@@ -1,5 +1,6 @@
 package com.saucedemo.pages;
 
+import com.codeborne.selenide.CollectionCondition;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -7,6 +8,7 @@ import com.saucedemo.common.PropertyLoader;
 import com.saucedemo.common.Utils;
 import org.openqa.selenium.By;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -96,7 +98,7 @@ public class Home {
 
     // 쇼핑 카트에 담긴 상품 수량
     private static final By SHOPPINGCARTBADGE = byXpath("//span[@data-test='shopping-cart-badge']");
-    public static SelenideElement shoppingCartBadge(){return $(SHOPPINGCARTBADGE).shouldBe(Condition.visible);}
+    public static SelenideElement shoppingCartBadge(){return $(SHOPPINGCARTBADGE).shouldBe(Condition.appear, Duration.ofSeconds(15));}
     public static int getShoppingCartBadge() { return Integer.parseInt(shoppingCartBadge().getText());}
 
     // 쇼핑 카트에서 제거 버튼
@@ -142,38 +144,78 @@ public class Home {
 
     // 상품 리스트에서 카트에 담기 버튼
     public static ElementsCollection addToCartButton() {
-     return $$(".btn_inventory");
+     ElementsCollection buttons = $$(".btn_inventory");
+     buttons.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return buttons;
     }
+
     public static SelenideElement getAddToCartButton(int index) {
-     return $$(".inventory_item").get(index).$("button");
+     ElementsCollection items = $$(".inventory_item");
+     items.shouldBe(CollectionCondition.sizeGreaterThan(index), Duration.ofSeconds(10));
+     return items.get(index).$("button").shouldBe(Condition.appear, Duration.ofSeconds(10));
     }
 
     // 상품 리스트에서 상품명
-    public static ElementsCollection productName() { return $$(".inventory_item_name"); }
-    public static List<String> getProductName() { return productName().texts(); }
+    public static ElementsCollection productName() {
+     ElementsCollection names = $$(".inventory_item_name");
+     names.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return names;
+    }
+
+    public static List<String> getProductName() {
+     return productName().texts();
+    }
 
     // 카트 상세 페이지의 상품명
     public static ElementsCollection cartProductName() {
-     return $$(".cart_item .inventory_item_name");
+     ElementsCollection names = $$(".cart_item .inventory_item_name");
+     names.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return names;
     }
 
-    public static ElementsCollection cartProductRemove(){
-     return $$x("//button[text()='Remove']");
+    public static ElementsCollection cartProductRemove() {
+     ElementsCollection buttons = $$x("//button[text()='Remove']");
+     buttons.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return buttons;
     }
 
-    public static ElementsCollection removeButton() { return $$x("//button[text()='Remove']");}
+    public static ElementsCollection removeButton() {
+     ElementsCollection buttons = $$x("//button[text()='Remove']");
+     buttons.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return buttons;
+    }
 
-    public static ElementsCollection productPrice() {return $$(".inventory_item_price");}
-    public static List<String> getProductPriceText() {return productPrice().texts();}
+    public static ElementsCollection productPrice() {
+     ElementsCollection prices = $$(".inventory_item_price");
+     prices.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return prices;
+    }
 
-    public static ElementsCollection cartProductPrice() {return $$(".cart_item .inventory_item_price");}
+    public static List<String> getProductPriceText() {
+     return productPrice().texts();
+    }
+
+    public static ElementsCollection cartProductPrice() {
+     ElementsCollection prices = $$(".cart_item .inventory_item_price");
+     prices.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return prices;
+    }
 
     public static ElementsCollection productItem() {
-     return $$("div.inventory_item");
+     ElementsCollection items = $$("div.inventory_item");
+     items.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return items;
     }
 
-    public static ElementsCollection inventoryDetailName() { return $$(".inventory_details_name");}
-    public static String getInventoryDetailName() { return inventoryDetailName().first().getText();}
+    public static ElementsCollection inventoryDetailName() {
+     ElementsCollection names = $$(".inventory_details_name");
+     names.shouldBe(CollectionCondition.sizeGreaterThan(0), Duration.ofSeconds(10));
+     return names;
+    }
+
+    public static String getInventoryDetailName() {
+     return inventoryDetailName().first().getText();
+    }
 
 
 
