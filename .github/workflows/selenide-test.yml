@@ -4,12 +4,11 @@ on:
   schedule:
     #- cron: '0 0 * * *'  # 매일 오전 9시 (한국 시간 = UTC+9 → UTC 자정 기준)
     - cron: '*/5 * * * *'  # 5분마다 실행
-  workflow_dispatch:     # 수동 실행도 가능
+  workflow_dispatch:      # 수동 실행도 가능
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -20,8 +19,20 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build with Maven
-        run: mvn clean test
+      - name: Run Tests with Debug Logging
+        run: mvn clean test -Dselenide.logging=FINE # Selenide 상세 로그 활성화 (Maven 옵션)
+
+      - name: Save Screenshots on Failure
+        if: failure()
+        run: |
+          mkdir -p build/screenshots
+          cp -r target/selenide/screenshots/* build/screenshots/
+      - name: Upload Screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: build/screenshots
 
       - name: Archive Test Reports
         if: always()
