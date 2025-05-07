@@ -251,13 +251,6 @@ public class Home {
             String url = PropertyLoader.getConfig().getUrls().get(SAUCEDEMO_URL);
             open(url);
 
-//            if (hasAdvertisement == null) {
-//                Utils.sleep(5);
-//                hasAdvertisement = $$(CLOSE_MESSAGE_BUTTON).size() > 0;
-//            }
-//            if (hasAdvertisement) {
-//                $(CLOSE_MESSAGE_BUTTON).shouldBe(Condition.visible).click();
-//            }
         }
         public static void login(final String username, final String password){
             Home.usernameStandard().sendKeys(username);
