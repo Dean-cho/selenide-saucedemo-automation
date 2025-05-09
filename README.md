@@ -49,7 +49,7 @@ pom.xml                        # Maven 프로젝트 설정 파일
 ## GitHub Actions
 이 프로젝트는 GitHub Actions를 활용하여 자동화 테스트를 주기적으로 실행합니다.
 - **워크플로우 파일**: `.github/workflows/selenide-test.yml`
-- **실행 주기**: 5시간마다 자동 실행 (`cron`)
+- **실행 주기**: 매일 오전 9시 자동 실행 (`cron`)
 - **주요 테스트**: `TestAll` 클래스에서 모든 테스트를 통합 실행
 
 ---
