@@ -1,3 +1,3 @@
-2025/04/30-16:31:15.131 56d7cb Reusing MANIFEST /Users/li000618/Documents/GitHub/saucedemo/chrome-profile/Default/Local Storage/leveldb/MANIFEST-000001
-2025/04/30-16:31:15.134 56d7cb Recovering log #3
-2025/04/30-16:31:15.134 56d7cb Reusing old log /Users/li000618/Documents/GitHub/saucedemo/chrome-profile/Default/Local Storage/leveldb/000003.log 
+2025/05/12-13:32:39.862 216cbff Reusing MANIFEST /Users/jojan/Documents/GitHub/selenide-saucedemo-automation/chrome-profile/Default/Local Storage/leveldb/MANIFEST-000001
+2025/05/12-13:32:39.864 216cbff Recovering log #3
+2025/05/12-13:32:39.864 216cbff Reusing old log /Users/jojan/Documents/GitHub/selenide-saucedemo-automation/chrome-profile/Default/Local Storage/leveldb/000003.log 

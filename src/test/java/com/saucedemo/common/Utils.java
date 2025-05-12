@@ -17,7 +17,6 @@ public class Utils {
         System.out.println(browser);
         setBrowserOptions(browser);
         Configuration.timeout = PropertyLoader.getConfig().getTimeout();
-        Configuration.browserSize = "1920x1080";
         Configuration.browserPosition = "0x0";
         Configuration.pageLoadTimeout = PropertyLoader.getConfig().getTimeout();
         Configuration.pageLoadStrategy = "normal";
@@ -43,6 +42,7 @@ public class Utils {
                 String userDataDir = System.getProperty("user.dir") + "/chrome-profile";
                 chromeOptions.addArguments("--user-data-dir=" + userDataDir);
                 chromeOptions.addArguments("--start-maximized"); // 브라우저 창 표시
+                chromeOptions.addArguments("--window-size=1280,800");
             } else {
                 chromeOptions.addArguments("--headless=new"); // CI 환경용
                 chromeOptions.addArguments("--window-size=1920,1080");

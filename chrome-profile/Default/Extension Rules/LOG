@@ -1,2 +1,3 @@
-2025/04/11-17:26:38.482 f2ea44 Creating DB /Users/li000618/Documents/GitHub/saucedemo/chrome-profile/Default/Extension Rules since it was missing.
-2025/04/11-17:26:38.485 f2ea44 Reusing MANIFEST /Users/li000618/Documents/GitHub/saucedemo/chrome-profile/Default/Extension Rules/MANIFEST-000001
+2025/05/12-13:05:37.600 2166ebe Reusing MANIFEST /Users/jojan/Documents/GitHub/selenide-saucedemo-automation/chrome-profile/Default/Extension Rules/MANIFEST-000001
+2025/05/12-13:05:37.600 2166ebe Recovering log #3
+2025/05/12-13:05:37.600 2166ebe Reusing old log /Users/jojan/Documents/GitHub/selenide-saucedemo-automation/chrome-profile/Default/Extension Rules/000003.log 
